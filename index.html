@@ -12,8 +12,10 @@
 
 <h2>구구단출력</h2>
 <hr>
+<button onclick="myfunction()">aaa</button>
 <p id="result"> </p>
 <p id="number"> </p>
+<p id="number2"> </p>
     <script type="text/javascript">
 // var a=prompt("숫자를적어라");
 // var b=prompt("두번째 숫자를 적어라");
@@ -163,24 +165,134 @@
 // var cars=["saab","volvo","bmw"];
 // document.getElementById("result").innerHTML= cars[0];
 
+
 // var person = {firstname:"john",lastname:"doe",age:"44444"};
 // document.getElementById("result").innerHTML= person["firstname"];
 
+
 // var fruit=["banana","orange","apple","mango"];
 // document.getElementById("result").innerHTML= fruit.length;
+
 
 // var fruit=["banana","orange","apple","mango"];
 // var last=fruit[fruit.length-1];
 // document.getElementById("result").innerHTML= last;
 
-var fruit=["banana","orange","apple","mango"];
-flen=fruit.length;
-text="<ul>";
-    for(i=0; i<flen; i++){
-       text+="<li>"+fruit[i]+"</li>";
-    }
-    text+="</ul>";
-    document.getElementById("result").innerHTML=text;
-        </script>
+
+// var fruit=["banana","orange","apple","mango"];
+// flen=fruit.length;
+// text="<ul>";
+//     for(i=0; i<flen; i++){
+//        text+="<li>"+fruit[i]+"</li>";
+//     }
+//     text+="</ul>";
+//     document.getElementById("result").innerHTML=text;
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+// function myfuction(){
+//    fruit[fruit.length]  ="lemon";
+//    document.getElementById("result").innerHTML=fruit;
+// }
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+// function myfuction(){
+//    fruit[fruit.length]  =prompt("과일이름입력","예)망고");
+//    document.getElementById("result").innerHTML=fruit;
+// }
+
+
+
+
+
+// var person=[];
+// person[0]=["john"];
+// person[1]=["doe"];
+// person[2]=["4646"];
+// document.getElementById("result").innerHTML=person[0]+" "+person.length;
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit.toString();
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit.join("*");
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+// fruit.pop();
+// document.getElementById("number").innerHTML=fruit;
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+
+// function myfunction(){
+//     fruit.push("kiwi");
+//     document.getElementById("result").innerHTML=fruit;
+// }
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+
+// function myfunction(){
+//     document.getElementById("number").innerHTML=fruit.push("kiwi");
+//     document.getElementById("result").innerHTML=fruit;
+// }
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+// document.getElementById("number").innerHTML=fruit.shift(); // 처음까 가져오기
+// document.getElementById("number2").innerHTML=fruit;
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML=fruit;
+// function myfunction(){
+//     fruit.unshift("lemona")
+//     document.getElementById("number").innerHTML=fruit;
+// }
+
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML="original array: <br>"+fruit;
+
+// function myfunction(){
+//     fruit.splice(2,0,"lemon","kiwi"); // 0번째부터 가져와
+//     document.getElementById("number").innerHTML="new array: <br>"+fruit;
+// }
+
+
+
+
+// var fruit=["banana","orange","apple","mango"];
+// document.getElementById("result").innerHTML="original array: <br>"+fruit;
+
+// function myfunction(){
+//     var removed = fruit.splice(2,2,"lemon","kiwi"); // 0번째부터 가져와
+//     document.getElementById("number").innerHTML="new array: <br>"+fruit;
+//     document.getElementById("number2").innerHTML="removed array: <br>"+removed;
+// }
+
+
+var girl=["cecile","lone"];
+var boy=["emil","tobias","linus"];
+var mychild=girl.concat(boy);
+
+document.getElementById("result").innerHTML=mychild;
+</script>
 </body>
 </html>
