@@ -169,9 +169,18 @@
 // var fruit=["banana","orange","apple","mango"];
 // document.getElementById("result").innerHTML= fruit.length;
 
+// var fruit=["banana","orange","apple","mango"];
+// var last=fruit[fruit.length-1];
+// document.getElementById("result").innerHTML= last;
+
 var fruit=["banana","orange","apple","mango"];
-var last=fruit[fruit.length-1];
-document.getElementById("result").innerHTML= last;
+flen=fruit.length;
+text="<ul>";
+    for(i=0; i<flen; i++){
+       text+="<li>"+fruit[i]+"</li>";
+    }
+    text+="</ul>";
+    document.getElementById("result").innerHTML=text;
         </script>
 </body>
 </html>
