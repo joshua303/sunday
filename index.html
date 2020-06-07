@@ -9,10 +9,11 @@
     </style>
 </head>
 <body>
-    <p id="result"> </p>
-    <p id="number"> </p>
+
 <h2>구구단출력</h2>
 <hr>
+<p id="result"> </p>
+<p id="number"> </p>
     <script type="text/javascript">
 // var a=prompt("숫자를적어라");
 // var b=prompt("두번째 숫자를 적어라");
@@ -159,8 +160,11 @@
 
 
 
-var cars=["saab","volvo","bmw"];
-document.getElementById("result").innerHTML= cars[0];
+// var cars=["saab","volvo","bmw"];
+// document.getElementById("result").innerHTML= cars[0];
+
+var person = {firstname:"john",lastname:"doe",age:"44444"};
+document.getElementById("result").innerHTML= person["firstname"];
         </script>
 </body>
 </html>
