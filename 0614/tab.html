@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;}
+        a{text-decoration: none;color:#666;}
+        #menu{width:350px;margin: 50px auto;}
+        #btn{margin-bottom:1px;}
+        #btn ul{overflow: hidden;}
+        #btn li{float: left; width:25%; text-align: center;}
+        #btn li a{padding:14px 10px 10px 10px;display:block;background:blueviolet;margin-right:1px;color:#fff;}
+        #cont{width:100%;height:300px;}
+        #cont.img1{background: url(1.jpg);background-size: cover;background-position: center;}
+        #cont.img2{background: url(2.jpg);background-size: cover;background-position: center;}
+        #cont.img3{background: url(3.jpg);background-size: cover;background-position: center;}
+        #cont.img4{background: url(4.jpg);background-size: cover;background-position: center;}
+    </style>
 </head>
 <body>
 <div id="menu">
     <div id="btn">
         <ul>
-            <li><a href="">t1</a></li>
-            <li><a href="">t2</a></li>
-            <li><a href="">t3</a></li>
-            <li><a href="">t4</a></li>
+            <li class="bt1"><a href="#">t1</a></li>
+            <li class="bt2"><a href="#">t2</a></li>
+            <li class="bt3"><a href="#">t3</a></li>
+            <li class="bt4"><a href="#">t4</a></li>
         </ul>
     </div>
     <div id="cont" class="img1">
@@ -29,6 +44,28 @@
 
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tab.js"></script>
+    <script>
+$(function(){
+    // $('.bt2').click(function(){
+    //     $('#cont').addClass('img2');
+    // });
+    // $('.bt3').click(function(){
+    //     $('#cont').addClass('img3');
+    // });
+    // $('.bt4').click(function(){
+    //     $('#cont').addClass('img4');
+    // });
+    // $('.bt1').click(function(){
+    //     $('#cont').addClass('img1');
+    // });
+    $('#btn ul li').click(function(e){
+        e.preventDefault();
+        var target=$(this);
+        var index=target.index()+1;
+        target.find('a').text('tt'+index);
+        $('#cont').removeClass().addClass('img'+index);
+    })
+});
+    </script>
 </body>
 </html>
