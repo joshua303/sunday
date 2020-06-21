@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;color: inherit;}
+        li{list-style: none;}
+        .all{width:1200px;margin: 0 auto;}
+        #logo{float: left;}
+        nav{width:100%;margin-top:20px;position: relative;}
+        nav>ul{float: right; text-align: center;}
+        nav>ul>li{float: left;padding: 0 10px;width:150px;}
+        .sub{position: relative;display:none;}
+        .sub>li{padding: 10px 0;}
+        .box li{font-size: 16px;color: mediumslateblue;}
+        section{clear: both;}
+        .warp{    width: 1200px; overflow: hidden;}
+        .warp ul{display:flex;}
+    </style>
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div id="logo"><a href="#">LOGO</a></div>
+            <nav>
+                <ul class="box">
+                    <li><a href="#">홈</a>
+                        <ul class="sub">
+                            <li><a href="#">sub1</a></li>
+                            <li><a href="#">sub2</a></li>
+                            <li><a href="#">sub3</a></li>
+                            <li><a href="#">sub4</a></li>
+                        </ul></li>
+                    <li><a href="#">소개</a>
+                        <ul class="sub">
+                            <li><a href="#">sub1</a></li>
+                            <li><a href="#">sub2</a></li>
+                            <li><a href="#">sub3</a></li>
+                            <li><a href="#">sub4</a></li>
+                        </ul></li>
+                    <li><a href="#">섭스</a>
+                        <ul class="sub">
+                            <li><a href="#">sub1</a></li>
+                            <li><a href="#">sub2</a></li>
+                            <li><a href="#">sub3</a></li>
+                            <li><a href="#">sub4</a></li>
+                        </ul></li>
+                    <li><a href="#">고객</a>
+                        <ul class="sub">
+                            <li><a href="#">sub1</a></li>
+                            <li><a href="#">sub2</a></li>
+                            <li><a href="#">sub3</a></li>
+                            <li><a href="#">sub4</a></li>
+                        </ul></li>
+                    <li><a href="#">기타</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <div class="slider">
+                <div class="warp">
+                    <ul>
+                        <li><img src="1.jpg" alt=""></li>
+                        <li><img src="2.jpg" alt=""></li>
+                        <li><img src="3.jpg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+    $(function(){
+        $('.box').mouseover(function(){
+            $('.sub').stop().slideDown();
+        });
+
+        $('.box').mouseleave(function(){
+            $('.sub').stop().slideUp();
+        });
+
+
+        setInterval(function(){
+            $('.warp>ul').delay('2500');
+            $('.warp>ul').animate({marginLeft:"-1200px"},500);
+            $('.warp>ul').delay('2500');
+            $('.warp>ul').animate({marginLeft:"-2400px"},500);
+            $('.warp>ul').delay('2500');
+            $('.warp>ul').animate({marginLeft:"0"},500);
+        });
+    });
+    </script>
+</body>
+</html>

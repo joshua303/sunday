@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .inner{top:0;z-index:99;width:100%;min-width:1000px;margin:0 auto;background:#fff;padding:0 10px; height:45px;box-sizing: border-box;}
+        .fixinnner{position:fixed;} */
+        body{margin:0;padding:0;}
+        div{margin: auto;width:500px;height:2000px;border: 1px solid royalblue;}
+        a{position:fixed;left: 50%;bottom: 50px;display:none;}
+        /* .title{text-align: center;}
+        .menu{text-align: center;background: springgreen;padding:10px 0;width:100%;}
+        .content{height:2000px;}
+        .fixed{position: fixed;top:0;} */
+    </style>
+</head>
+<body>
+    <!-- <button onclick="alertfunc();">aaaaaaaaaaaaaaaaaaa</button> -->
+    <!-- <a href="javascript:imonclick()" onfocus=this.blur()><image name=banner src="1.jpg"></a>
+        <button>assd</button> -->
+<!-- <div class="inner"></div>
+<div class="title">
+    <h1>title</h1>
+</div>
+<div class="menu">
+    <p>
+        1menu
+        2menu
+        3menu
+        4menu
+    </p>
+</div>
+<div class="content"></div> -->
+<div></div>
+<a class="aaa" href="#">top</a>
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+            if($(this).scrollTop()>200){
+                $('.aaa').fadeIn();
+            }else{
+                $('.aaa').fadeOut();
+                }
+            });
+            $('.aaa').click(function(){
+                $('html,body').animate({scrillTop:0},400);return false;
+            });
+        });
+
+
+        // var offset=$('.menu').offset();
+        // $(window).scroll(function(){
+        //     if($(document).scrollTop()>offset.top){
+        //         $('.menu').addClass('fixed');
+        //     }else{
+        //         $('.menu').removeClass('fixed');
+        //     }
+        // });
+
+
+        // var my;
+        // function my(){
+        //     my=setTimeout(alertfunc,3000);
+        // }
+        // function alertfunc(){
+        //     alert('hello!');
+        // }
+        // var id;
+        // var image=new Array();
+        // image[0]="1.jpg";
+        // image[1]="2.jpg";
+        // image[2]="3.jpg";
+
+        // function imonclick(){
+        //     id=setTimeout('ch()',1000);
+        //     // alert('start');
+        // }
+
+        // function ch(){
+        //     var num=Math.round(Math.random()*2);
+        //     while(true){
+        //         if(document.banner.src.indexOf(image[num])>=0){
+        //             num=Math.round(Math.random()*2);
+        //         }else{
+        //             document.banner.src=image[num];
+        //             break;
+        //         }
+        //     }id=setTimeout('ch()',2000);
+        // }
+        // function stop(){
+        //     clearTimeout(id);
+        // }
+    </script>
+</body>
+</html>
