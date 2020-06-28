@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding:0;}
+        li{list-style-type: none;}
+        .menu>ul{display: flex;}
+        .menu>ul>li{margin:10px 20px;cursor: pointer;}
+        .content2{display: none;}
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li class="tab1">notice</li>
+        <li class="tab2">weekly</li>
+    </ul>
+</div>
+<div class="content">
+    1. notice<br>
+    2. location<br>  
+</div>
+<div class="content2">
+    1. notice.......<br>
+    2. location........ <br>
+</div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <script>
+$(function(){
+    $('.tab1').click(function(){
+        $('.content').slideUp(300);
+        $('.content2').slideDown(300);
+    });
+    $('.tab2').click(function(){
+        $('.content').slideDown(300);
+        $('.content2').slideUp(300);
+    });
+});
+    </script>
+</body>
+</html>
