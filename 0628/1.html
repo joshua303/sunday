@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #box{width:100px;height:100px;border:1px solid red;}
+        .box{background: cornflowerblue;} */
+        /* #box{width:100px;height:100px;border:1px solid red;position: absolute};
+        #box.hover{background:red;}
+        .add{padding:5px 10px;border:0;background: forestgreen;color:#fff;border-radius: 5px;}
+        ul{padding:0;list-style-type: inside;}
+        li{border-bottom: 1px solid fuchsia;padding:5px 0;}
+        .active{background: firebrick;}
+        label{float: left; width:100px;}
+        input,label{display: block;margin-bottom: 10px;} */
+
+        table{width:320px;}
+        table,th{background:#333;}
+        th{padding-right:10px;height:80px;}
+        td{height:75px;text-align: center;}
+        th>input{width:100%;border:none;background:#333;color:#fff;text-align: right;font-size:48px;}
+        td>input[type=button]{width:100%;height:inherit;color:#333;font-size: 36px;border:none;}
+        td>input[type=button]:hover{background:#999;}
+        td:last-child>input{background:orange;color:#fff;}
+        .close{position: absolute;top:0;right:0;padding:10px;color:#fff;font-size: large;}
+        close:hover{background: #666;}
+    </style>
+</head>
+<body>
+    <!-- <h1 id="title">sadf</h1> -->
+
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button>cccc</button> -->
+
+    <!-- <div id="content"></div>
+    <div id="content2"></div> -->
+
+    <!-- <div id="box" class='box' onclick="color();">sdaf</div> -->
+
+        <!-- <button id="btn">asdf</button> -->
+
+        <!-- <div id="box"><p>asdsa</p></div> -->
+
+        <!-- <h1 id="title">aaaaaaaaaaaaaaaaaa</h1>
+        <button id="add">add</button>
+        <ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul> -->
+
+        <!-- <form name="frm">
+            <label for="id">id:</label>
+            <input type="text" id="id" name="id">
+            <label for="pw">pw:</label>
+            <input type="text" id="pw" name="pw">
+            <input type="button" name="send" value="logIn">
+        </form> -->
+
+        <form name="cal">
+        <table>
+            <caption>계산기</caption>
+            <tr>
+                <th colspan="4"><input type="text" name="result" value="0"></th>
+            </tr>
+            <tr>
+                <td><input type="button" value="7"></td>
+                <td><input type="button" value="8"></td>
+                <td><input type="button" value="9"></td>
+                <td><input type="button" value="+"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4"></td>
+                <td><input type="button" value="5"></td>
+                <td><input type="button" value="6"></td>
+                <td><input type="button" value="-"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1"></td>
+                <td><input type="button" value="2"></td>
+                <td><input type="button" value="3"></td>
+                <td><input type="button" value="*"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="0"></td>
+                <td><input type="button" value="%"></td>
+                <td><input type="button" value="/"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class="cls" value="clear"></td>
+                <td colspan="2"><input type="button" class="result" value="="></td>
+            </tr>
+        </table></form>
+
+    <script type="text/javascript">
+    var inp=document.forms['cal'];
+    var input=inp.getElementsByTagName('input');
+    var cls=document.getElementsByClassName('cls')[0];
+    var result=document.getElementsByClassName('result')[0];
+
+    function calc(value){
+        if(inp['result'].value==0){
+            inp['result'].value='';
+        }
+        inp['result'].value+=value;
+    }
+    function result(){
+        var result=document.forms['cal']['result'];
+        var calc=eval(result.value);
+        inp['result'].value+=value;
+    }
+    function clr(){
+        inp['result'].value=0;
+    }
+    for(var i=0; i<input.length;i++){
+        if(input[i].value !='='&& input[i].value !='clear'){
+            input[i].onclick=function(){
+                calc(this.value);
+            }
+        }
+    }
+    cls.onclick=function(){
+        clr();
+    }
+    result.onclick=function(){
+        try{result();}
+        catch(err){
+            var result=inp['result'];
+            result.value='입력오류';
+            }
+    }
+    //  https://github.com/commaeng09/javascript/blob/master/javascript-sample-03/sample11.html
+                    
+// ---------------------------------------------------------
+
+//     var frm=document.frm;
+//     var id=frm.id;
+//     var pw=frm.pw;
+//     var send=document.frm.send;
+
+//     send.onclick=function(){
+//         var newid=id.value;
+//             newpw=pw.value;
+    
+
+//     if(newid==''||newpw==''){
+//         alert('id or pw');
+//     }else{
+//         alert(id.value+'login');
+//     }
+// };    
+
+// ---------------------------------------------------------
+
+    // var title=document.getElementById('title');
+    // var list=document.getElementById('list');
+    // var li=list.getElementsByTagName('li');
+    // var add=document.getElementById('add');
+    // var listCounter=1;
+
+    // for(var i=0;i<li.length;i++){
+    //     li[i].addEventListener('click',activeItem);
+    // }
+
+    // function activeItem(){
+    //     console.log(this);
+    //     title.innerHTML=this.innerText;
+    //     for(var i=0;i<li.length;i++){
+    //     li[i].removeAttribute('class');
+    //     }
+    //     this.setAttribute('class','active');
+    // }
+    // add.addEventListener('click',function(){
+    //     var txt=prompt('aa');
+    //     list.innerHTML+='<li>'+txt+'</li>';
+    // })
+                        
+// ---------------------------------------------------------
+
+    // var num=prompt('구구단입력','1~9num');
+    // if(num==''||isNaN(num)){
+    //     alert('제대로');
+    // }else if(num<1||num>9){
+    //     alert('1~9 oo');
+    // }else{
+    //     for(var i=1; i<10; i++){
+    //         document.write(num+" * "+i+" = "+num*i+"<br>");
+    //     }
+    // }
+                    
+// ---------------------------------------------------------
+
+    // var box = document.querySelector('#box');
+    // var touch={
+    //     start:function(){
+    //         box.innerHTML='fffffffffffff';
+    //         this.style.background="red";
+    //     },
+    //     end:function(){
+    //         box.innerHTML='gggggggggggggg';
+    //         this.style.bendckground="";
+    //     },
+    //     move:function(e){
+    //         var touchobj=e.changedTouches[0];
+
+    //         var x = parseInt(touchobj.clientX),
+    //             y=parseInt(touchobj.clientY),
+    //             ex= x-50;
+    //             ey=y-50;
+    //         box.innerHTML='hhhhhhhhhhhhhh';
+    //         this.style.background="black";
+            
+    //         this.style.left=ex+'px';
+    //         this.style.top=ey+'px';
+    //         console.log(touchobj);
+    //     }
+    // }
+
+    // box.addEventListener('touchstart',touch.start);
+    // box.addEventListener('touchend',touch.end);
+    // box.addEventListener('touchmove',touch.move);
+                
+// ---------------------------------------------------------
+
+    // var b=document.getElementById('box');
+    // b.addEventListener('mouseover',function(){
+    //     b.setAttribute('class','hover');
+    // });
+    // b.addEventListener('mouseout',function(){
+    //     b.removeAttribute('class');
+    // });
+             
+// ---------------------------------------------------------
+
+    // var btn=document.querySelector('#btn');
+    // btn.addEventListener('click'.function(){
+    //     alert('1');
+    // }); 
+    // btn.onclick=function(){
+    //     alert('2');
+    // }
+             
+// ---------------------------------------------------------
+
+    // window.onload=function(){
+    //     var h=document.querySelector('h1');
+    //     h.innerHTML='loading';
+
+    //     h.onclick=function(){
+    //         this.innerHTML='bbbbbbbbbbbbbb';
+    //     }
+    // } 얘는 맨밑에 h1태그
+          
+// ---------------------------------------------------------
+
+    // onkeydown 키보드입력할때
+    // onkeyup 키보드땟을때
+    // onfocus.onblur 해당요소가 선택 됬거나 해제했을때
+    // onsubmit 폼전송이벤트가 발생했을대
+        
+// ---------------------------------------------------------
+
+    // function color(){
+    //     var b=document.querySelector('#box');
+
+    //     b.removeAttribute('class','box');
+    //     // b.setAttribute('class','box');
+    // }
+       
+// ---------------------------------------------------------
+
+    // var content=document.querySelector("#content");
+    // content.innerHTML='<h1>asdf</h1>';
+    // var content2=document.querySelector("#content2");
+    // content2.innerText='<h1>asdf</h1>';
+    
+// ---------------------------------------------------------
+
+        // function aa(){
+        //     var li=document.querySelectorAll('li');
+        //     for(var i=0; i<li.length; i++){
+        //         li[i].style.color="red";
+        //     }
+        // }
+        // aa();
+        // var li=document.querySelectorAll('li');
+        // li[1].style.color="red";
+
+// ---------------------------------------------------------
+
+        // var t = document.getElementById('title');
+        // var y=document.querySelector('#title');
+
+        // y.style.color='#fff';
+        // y.style.background='orange';
+        // y.innerHTML='aaaaaaaaaaaaaaa';
+    </script>
+
+<!-- <h1>aaaaaaaaaaa</h1> -->
+</body>
+</html>
