@@ -24,8 +24,7 @@
         td>input[type=button]{width:100%;height:inherit;color:#333;font-size: 36px;border:none;}
         td>input[type=button]:hover{background:#999;}
         td:last-child>input{background:orange;color:#fff;}
-        .close{position: absolute;top:0;right:0;padding:10px;color:#fff;font-size: large;}
-        close:hover{background: #666;}
+        
     </style>
 </head>
 <body>
@@ -114,17 +113,19 @@
     function result(){
         var result=document.forms['cal']['result'];
         var calc=eval(result.value);
-        inp['result'].value+=value;
+        inp['result'].value =calc;
     }
-    function clr(){
-        inp['result'].value=0;
-    }
+
     for(var i=0; i<input.length;i++){
         if(input[i].value !='='&& input[i].value !='clear'){
             input[i].onclick=function(){
                 calc(this.value);
             }
         }
+    }
+    
+    function clr(){
+        inp['result'].value=0;
     }
     cls.onclick=function(){
         clr();
