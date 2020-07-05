@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sadf</title>
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style: none;}
+        a{color:inherit;text-decoration: none;}
+        /* #time{width:200px;font-size: 2rem;padding: 10px;text-align: center;background: #333;color: #ffffff;} */
+        #wrap{width:350px;text-align: center;background:#333;}
+        caption{font-size:1.5rem;padding:10px; color: darksalmon;}
+        table,th,td{color: mintcream;border:oldlace 1px solid;border-collapse: collapse;}
+        th,td{width:30px;padding:10px;}
+        th:first-child{color: red;}
+        th:last-child{color:deepskyblue;}
+        a#prev,a#next{display: inline-block;text-decoration: none;color: darkslateblue;padding:5px;}
+    </style>
+</head>
+<body>
+<div id="time"></div>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+
+<table id="wrap">
+    <caption>
+        <span class="year"></span>년
+        <span class="month"></span>월
+    </caption>
+    <tr>
+        <th>일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<div>
+    <a href="#wrap" id="prev">이전</a>
+    <a href="#wrap" id="next" style="margin-left: 265px;">다음</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+<script>
+function cc(newy,newm){
+    var d = new Date(newy,newm-1,1),
+    dlength=32- new Date(newy,newm-1,32).getDate(),
+    year=d.getFullYear(),
+    month=d.getMonth(),
+    date=d.getDate(),
+    day=d.getDay();
+
+    var cy=document.querySelector('.year'),
+    cm=document.querySelector('.month');
+
+    var start=document.querySelectorAll('tr td');
+
+    for(var i=0; i<start.length; i++){
+        start[i].innerHTML='&nbsp;';
+    }
+
+    for(var i=day; i<day+dlength;i++){
+        start[i].innerHTML=date;
+        date++;
+    }
+
+    cy.innerHTML=year;
+    cm.innerHTML=month+1;
+}
+
+(function() {
+  var prev = document.getElementById('prev'),
+    next = document.getElementById('next'),
+    year = new Date().getFullYear(),
+    month = new Date().getMonth() + 1;
+
+  cc(year, month);
+  prev.onclick = function() {
+    cc(year, --month);
+  };
+  next.onclick = function() {
+    cc(year, ++month);
+  };
+})();
+
+
+    // var li=$('li'),
+    // length=li.length,
+    // size=12;
+
+    // console.time('Javascript');
+
+    // for(var i=0; i<length; i++){
+    //     $('li').eq(i).css('fontSize',size+'px');
+    //     size+=10;
+    // }
+    // console.time('Javascript')
+
+    // var d=new Date();
+    // var year=d.getFullYear(),
+    // month=d.getMonth();
+    // date=d.getDate();
+    // day=d.getDay();
+
+    // switch(day){
+    //     case 0:var dd= "sun";break;
+    //     case 1:var dd= "mon";break;
+    //     case 2:var dd= "tue";break;
+    //     case 3:var dd= "wed";break;
+    //     case 4:var dd= "tru";break;
+    //     case 5:var dd= "fri";break;
+    //     case 6:var dd= "sat";break;
+    //     default:break;
+
+
+    // var time= document.getElementById('time');
+    // var d= new Date(),
+    // h=d.getHours(),
+    // m=d.getMinutes(),
+    // s=d.getSeconds();
+
+    // var h12=(h>12)?(h-12):h;
+    // var ampm=(h<12)?'오전':"오후";
+    // var min0=(m<10)?'0':'';
+    // var sec0=(s<10)?'0':'';
+    // var ttime=ampm+' '+h12+":"+min0+m+":"+sec0+s;
+    // time.innerHTML=ttime;
+    // }
+    // document.write(year);
+    // document.write(month+1);
+    // document.write(date);
+    // document.write(dd);
+
+
+
+
+</script>
+
+</body>
+</html>
