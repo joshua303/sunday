@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{color:#333;}
+        a{text-decoration: none;color: inherit;}
+        header{width:960px;overflow: hidden;margin: 0 auto;}
+        header nav{float: right;margin-top: 45px;}
+        header nav a{display:inline-block;padding:0 10px;}
+        main{position: relative;overflow: hidden;}
+        main figure.banner{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:960px;height:180px;
+            margin: 0 auto;
+            background: #69f;
+            margin-bottom: 20px;
+        }
+        .figure_header{
+            width:600px;
+            text-align: center;
+            color: #fff;
+        }
+        .figure_header h2{font-size: 2.5rem;}
+        main section{width:960px;margin: 0 auto;}
+        main section article{width:66%;overflow: hidden;float: left;}
+        #map{width:100%;height:500px;background: #ccc;}
+        article p{ margin-bottom: 20px; }
+        aside{float: right;width:34%;box-sizing: border-box;padding:0 20px 20px 20px;}
+        fieldset{width:100%;padding:10px;border:none;}
+        legend{font-size:1.6em;margin-bottom:20px;}
+        label{display: block;}
+        input,textarea{border:none;background: #ddd;padding:10px;resize:none;}
+        label,input,textarea{width: 90%;margin-bottom: 10px;}
+        button{background: #fe6081;color:#fff;border:none;padding:10px 40px;}
+        button:hover{background:#d42649 ;}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <span><a href="#">home</a></span>
+            <span><a href="#">about</a></span>
+            <span><a href="#">contact us</a></span>
+        </nav>
+    </header>
+
+    <main>
+        <figure class="banner">
+            <div class="figure_header">
+                <h2>contact us</h2>
+                <p>sadflsdjflksdfjsdfjsdf</p>
+            </div>
+        </figure>
+        <section>
+            <article>
+                <p>asdjflksdfsdfkjsdlkfjasldkjflksdjfkjsdalkfjsadflksadjfksdjflkjsadlkfjsdlkjflsakdjflsadjlfjsadlfjlsadjfjsdfljskdjflskadjflksadjflksdjaflkjsdakj</p>
+                <div id="map"><br>$nbsp;지도표시영역</div>
+            </article>
+            <aside>
+                <form action="">
+                    <fieldset>
+                        <legend>send email</legend>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">phone</label>
+                            <input type="text" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="msg">Name</label>
+                            <textarea type="text" id="msg" name="msg" cols="30" rows="8"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button>send</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </aside>
+        </section>
+    </main>
+
+    <script>
+        function initMap(){
+            var map= new google.maps.Map(document.getElementById('map'),{
+                center:{lat:37.571717,lng:126.976479},
+                scrollwheel:false,
+                zoom:17
+            });
+            var marker=new google.maps.Marker({
+                map:map,
+                position:{lat:37.571717,lng:126.976479},
+                title:'here'
+            });
+            var infoWindow= new google.maps.infoWindow({map:map});
+            var my_position={lat:37.571717,lng:126.976479};
+
+            infoWindow.setPosition(my_position);
+            infoWindow.setContent("here!@#!##@!");
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA79F3HwKaIZZGfFmXbW6esaI6fqbxti0I&callback=initMap"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+1.json 데이터는 이름과 값의 쌍으로 이루어진다
+2.json 데이터는 쉼표로 나열됩니다
+3.객체(object)는 중괄효{}로 둘러쌓아 표현합니다
+4. 배열(array)은 대괄호로[] 둘러쌓아 표현합니다
+
+"dog":[
+    {"name":"aa","family" :"웰시코기","age":1,"weight":2.14},
+    {"name":"bb","family" :"포메","age":2,"weight":4.14},
+    {"name":"cc","family" :"진도개","age":3,"weight":3.14}
+]
+
+
+{
+    "dog":{
+        "name":"aa",
+        "family":"웰시코기",
+        "age":1,
+        "weight":2.14,
+        "owner":{
+            "ownerName":"john",
+            "phoneNumber":"01000000000"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <!-- <h1>ajax는 새로운 언어는 아니다. <br> html,css javascript dom xml등 기존에 사용되던 여러 기술을 함께 사용하는 새로운 개밥기법이다.</h1>
+    <p>ajax는 웹 페이지 전체를 다시 로딩하지 않고도 웹페이지의 일부분만을 갱신할 수 있게 해줍니다<br>
+        즉 ajax를 이용하면 백그라운드 영역에서 서버와 통신하여 그 결과를 웹페이지의 일부분에만 표시할 수 있습니다.
+    </p>
+
+    <p id="txt">asdfsadfsdfsadfsadf</p>
+    <button id="btn">load</button> -->
+
+    <p>get 방식</p>
+    <button type="button" onclick="send()">gett</button>
+    <p id="txt"></p>
+    <script>
+        function send(){
+           var http = new XMLHttpRequest();
+           httpRequest.onreadystatechange == function(){
+               if(httpRequest.readyState ==XMLHttpRequest.DONE && httpRequest.state==200){
+                   document.getElementById('txt').innerHTML= httpRequest.responseText;
+               }
+           };
+           httpRequest.open('GET','12.txt',true);
+           httpRequest.send();
+        }
+
+        // $(function(){
+        //     $('#btn').on('click',function(){
+        //         $('#txt').load('12.txt');
+        //     });
+        // });
+    </script>
+</body>
+</html>

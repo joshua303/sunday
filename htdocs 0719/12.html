@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    
+    <p id="txt"></p>
+    <script>
+        function send(){
+           var http = new XMLHttpRequest();
+           httpRequest.onreadystatechange == function(){
+               if(httpRequest.readyState ==XMLHttpRequest.DONE && httpRequest.state==200){
+                   document.getElementById('txt').innerHTML= httpRequest.responseText;
+               }
+           };
+           httpRequest.open('GET','php/12.php',true);
+           httpRequest.send();
+        }
+        window.setInterval('send()',500);
+    </script>
+</body>
+</html>
