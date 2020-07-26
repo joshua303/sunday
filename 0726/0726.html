@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{font-size: 18px;}
+        .grid{width:600px;margin: 50px auto;background: #fff;padding:10px 50px 30px 50px;border: 2px solid #eed0dc;border-radius: 20px;box-shadow: 5px 5px 5px #cbcbcb;}
+        h1{color:#333;font-size: 2.4em;text-align: center;}
+        #qu{font-size: 24px;background: #c34c74;color:#fff;padding:10px 2px;border-radius: 15px;text-align: left;}
+        #quiz{text-align: center;}
+        #progress{color:#2b2b2b;font-size: 20px;}
+        .buttons{padding:30px 20px;border: 2px solid #eed0dc;border-radius: 20px;}
+        .btn{background: #eed0dc;color: #333;;width:250px;font-size: 16px;border: 1px solid #ffe4ed;border-radius: 15px;margin:10px 40px 20px 0;padding:10px;transition: .5s;}
+        .btn:nth-child(2n){margin-right: 0;}
+        .btn:hover{cursor: pointer;background: #c34c74;color:#fff;}
+        .btn:focus{outline: 0;}
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <h1>quiz</h1>
+        <div id="quiz">
+            <p id="qu"></p>
+            <div class="buttons">
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+            </div>
+            <footer>
+                <p id="progress">문제 x of y.</p>
+            </footer>
+        </div><!-- quiz -->
+    </div><!-- grid -->
+
+
+
+    <script>
+        function qu(text,choice,answer){
+            this.text=text;
+            this.choice=choice;
+            this.answer=answer;
+        }
+        function quiz(que){
+            this.score=0;
+            this.questions=questions;
+            this.questionIndex=0;
+        }
+        quiz.prototype.correctAnswer=function(answer){
+            return answer==this.que[this.questionIndex].answer;
+        }
+        var que=[
+            new qu('다음중최초의상용웹브라우저는?1',['모자이크','ex','chrome','넷스케이프네비게이터'],'넷스케이프네비게이터'),
+            new qu('다음중최초의상용웹브라우저는?2',['모자이크','ex','chrome','넷스케이프네비게이터'],'넷스케이프네비게이터'),
+            new qu('다음중최초의상용웹브라우저는?3',['모자이크','ex','chrome','넷스케이프네비게이터'],'넷스케이프네비게이터'),
+            new qu('다음중최초의상용웹브라우저는?4',['모자이크','ex','chrome','넷스케이프네비게이터'],'넷스케이프네비게이터')
+        ];
+
+        function update(){
+            var que=document.getElementById('qu');
+            var idx=qu.questionIndex +1;
+            var choice=document.querySelectorAll('.btn');
+
+            function check(i){
+                btn[i].addEvenetListener('click',function(){
+                    var answer = btn[i].innerText;
+                    if(qu.correctAnswer(answer)){
+                        alert('good');qu.score++;
+                    }else{alert('wrong');}
+
+                    if(qu.questionIndex<qu.questions.length-1){
+                        qu.questionIndex++;
+                        update();
+                    }else{
+                        result();
+                    }
+                })
+            }
+
+            for(var i=0; i<btn.length; i++){
+                check(i);
+            }
+            update();
+
+            que.innerHTML='문제' +idx+')'+quiz.questions[qu.questionIndex].text;
+
+            for(var i=0; i<4; i++){
+                choice[i].innerHTML=qu.questions[qu.questionIndex].choice[i];
+            }progress();
+        }
+
+        function progress(){
+            var progress=document.getElementById('progress');
+            progress.innerHTML='문제'+(qu.questionIndex+1)+'/'+qu.questions.length;
+        }
+
+        function result(){
+            var quiz_div=document.getElementById('quiz');
+
+            var per =parseInt((qu.score*100)/qu.questions.length);
+            var txt= '결과'+'<h2 id="score">당신의 점수 : '+qu.score+'/'+qu.questions.length+'<br><br>'+per+'점 </h2>';
+
+            quiz_div.innerHTML=txt;
+            if(per<60){
+                txt+='<h2 color="red">분발</h2>';
+                quiz_div.innerHTML=txt;
+            }else if(per>=60&&per<80){
+                txt+='<h2 color="yellow">무난</h2>';
+                quiz_div.innerHTML=txt;
+            }else if(per>=80){
+                txt+='<h2 color="green">굿</h2>';
+                quiz_div.innerHTML=txt;
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
