@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webD</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        .submenu{display:none;}
+
+        .indexright{float: right;width:760px;height:350px;}
+        #slidebox{width:760px;height:350px;}
+        #slidebox ul{font-size: 0;}
+        #slidebox ul li{position: absolute;}
+
+        .tabmenu{float: left;width:340px;height:180px;margin: 10px;}
+        .tabbutton{display: inline;text-align: center;font-size: 0;}
+        .tabbutton li{display: inline-block;cursor: pointer;background: darkgrey;}
+        .tabbutton li a{display: block;padding: 5px 15px; width:60px;}
+        .tabbutton>li:hover,.tabbutton>li:hover::after,.tabbutton>li:focus,.tabbutton>li:focus::after{background: #fff;}
+        .content{width:320px;height:130px;background: #fff;padding:10px;}
+        .tab1{width:320px;height:130px;}
+        .tab1 ul li a{font-size: .9em;float: left;cursor: pointer;color: dimgrey;}
+        .tab1 ul li span{float: right;color: dimgrey;}
+        .tab1 ul li:hover a{font-weight:800;color: #222;}
+        .tab2{width:320px;height:130px;}
+        .tab2 ul{display: flex;justify-content: space-between;padding: 10px 0;}
+        .tab2 ul img{width:100px;height:110px;}
+        .tab2 ul li:hover{opacity: .7;}
+
+        #popup{display: none;top:180px;left: 300px;position: absolute;width:400px;height:280px;background: #fff;border: 5px solid darkslateblue;z-index: 3;}
+        .popuptitle{width:100%;height:30px;background: darkslateblue;}
+        .popuptitle a{color: #fff;font-size: 1.2rem;line-height: 26px;margin: 0 10px;}
+        .popuptext{height:180px;margin: 10px;line-height: 30px;}
+        .팝업닫기{float: right;margin-right: 10px;padding: 5px 20px;background: dimgrey;color: #fff;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div id="index_box">
+        <div id="index_left">
+            <header>
+                <div class="logobox">
+                    <a href="#"><img src="img/logo.png" alt="logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">이용안내</a>
+                        <ul class="submenu">
+                            <li><a href="#">방법</a></li>
+                            <li><a href="#">시간</a></li>
+                            <li><a href="#">요금</a></li>
+                        </ul></li>
+                        <li><a href="#">이용안내2</a>
+                            <ul class="submenu">
+                                <li><a href="#">방법</a></li>
+                                <li><a href="#">시간</a></li>
+                                <li><a href="#">요금</a></li>
+                            </ul></li>
+                        <li><a href="#">이용안내3</a>
+                            <ul class="submenu">
+                                <li><a href="#">방법</a></li>
+                                <li><a href="#">시간</a></li>
+                                <li><a href="#">요금</a></li>
+                            </ul></li>
+                        <li><a href="#">이용안내4</a>
+                            <ul class="submenu">
+                                <li><a href="#">방법</a></li>
+                                <li><a href="#">시간</a></li>
+                                <li><a href="#">요금</a></li>
+                            </ul></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div id="indexright">
+        <section>
+            <div id="slidebox">
+                <ul>
+                    <li><a href="#"><img src="1.jpg" width="760px" height='300px'></a></li>
+                    <li><a href="#"><img src="2.jpg" width="760px" height='300px'></a></li>
+                    <li><a href="#"><img src="3.jpg" width="760px" height='300px'></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div id="contentbox">
+                <ul class="tabbutton">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">갤러리</a></li>
+                </ul>
+                <div class="content">
+                    <div class="tab1">
+                        <ul>
+                            <li><a href="#">여기팝업</a><span>20-03-24</span></li>
+                            <li><a href="#">ㅁㄴㅇㄹㄴㅇㄹ</a><span>20-03-21</span></li>
+                            <li><a href="#">ㄴㅁㅇㄹㄴㅇㄹ</a><span>20-03-06</span></li>
+                            <li><a href="#">ㅁㄴㅇㄹㄴㅇㄹ</a><span>20-03-15</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab2">
+                        <ul>
+                            <li><a href="#">여기팝업2</a></li>
+                            <li><a href="#"></a><img src="1.jpg" width="150px" height='300px' alt='갤러리1'></li>
+                            <li><a href="#"></a><img src="2.jpg" width="150px" height='300px' alt='갤러리2'></li>
+                            <li><a href="#"></a><img src="3.jpg" width="150px" height='300px' alt='갤러리3'></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script>
+        $(function(){
+            $('.menu>ul>li').hover(function(){
+                $(this).children('.submenu').stop().slideToggle();
+            });
+
+            $('#slidebox>ul>li:gt(0)').hide();
+            setInterval(function(){
+                $('#slidebox ul li:first').fadeOut(1000).next().fadeIn(1000).end().appendTo('#slidebox ul');
+            },3000);
+
+            $('.content').children().hide();
+            $('.tab1').fadeIn();
+            $('.tabbutton li:first').css('background','#fff');
+            $('.tabbutton li:last').click(function(){
+                $('.tabbutton li:first').css('background','darkgrey');
+                $(this).css('background','#fff');
+                $('.tab1').hide();
+                $('.tab2').fadeIn();
+            });
+            $('.tabbutton li:first').click(function(){
+                $('.tabbutton li:last').css('background','darkgrey');
+                $(this).css('background','#fff');
+                $('.tab2').hide();
+                $('.tab1').fadeIn();
+            });
+            $('#slidebox ul li"gt(0)').hide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="countdown">
+        <li class="white"><span class="days" id="time-d">00</span><p class="d-text">Days</p></li>
+        <li class="white"><span class="hours" id="time-h">00</span><p class="h-text"></p></li>
+        <li class="white"><span class="minutes" id="time-m">00</span<p class="m-text"></p></li>
+        <li class="white"><span class="seconds" id="time-s">00</span><p class="s-text"></p></li>
+    </ul>
+
+    <script>
+        var timer=setInterval(gap,1000);
+        function gap(){
+            var dday=new Date('august 01,2020 24:00:00').getTime();
+            var nowday=new Date();
+            nowday=nowday.getTime();
+            var distance=dday-nowday;
+
+            var d=Math.floor(distance/(1000*60*60*24)),//일
+                h=Math.floor((distance/(1000*60*60))%24),//시
+                m=Math.floor((distance/(1000*60))%60),//분
+                s=Math.floor((distance/(1000))%60);//초
+
+            if(distance<=0){
+                document.getElementById('timer').innerHTML='D-day';
+            }else{
+                document.getElementById('time-d').innerHTML=d;
+                document.getElementById('time-h').innerHTML=h;
+                document.getElementById('time-m').innerHTML=m;
+                document.getElementById('time-s').innerHTML=s;
+            }
+        }
+    </script>
+</body>
+</html>
